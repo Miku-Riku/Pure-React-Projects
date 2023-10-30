@@ -1,15 +1,22 @@
 const express = require("express");
 const app = express();
-// const socket.io = require("socket.io");
+const socketio = require('socket.io');
 
-// console.log(express);
-// console.log("\n\nthis is meee heheeh\n");
-// console.log(app);
+const http = require("http");
+const server = http.createServer(app);
 
-const test = () => {
-  console.log(this.meow);
-}
+const io = socketio(server);
+const port = process.env.PORT || 5000;
+const router = require("./router.js");
 
-test.meow = "meow";
-
-console.log(test.meow);
+app.use(router);
+app.get('/', (req, res) => {
+  res.send("Server uis running..");
+})
+server.listen(port, (err)=>{
+  if(err) {
+    console.log(err);
+  }else {
+    console.log(`Server is listening on ${port}`);
+  }
+})
