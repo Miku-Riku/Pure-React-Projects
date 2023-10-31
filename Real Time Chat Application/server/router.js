@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res)=>{
-  res.send("Server is up and running");
+  res.send("Join");
+});
+
+router.get('/chat', (req, res)=>{
+  res.send("Chat");
 });
 
 module.exports = router;

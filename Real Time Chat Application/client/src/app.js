@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Chat from './components/Chat';
-import Join from './components/Join';
+import Chat from './components/chat/Chat';
+import Join from './components/join/Join';
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Join />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/chat" element={<Chat  />} />
       </Routes>
     </Router>
   );
