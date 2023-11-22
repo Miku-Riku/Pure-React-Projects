@@ -10,6 +10,7 @@ const io = socketio(server, {cors : {origin : 'http://localhost:3000'}});
 
 const port = process.env.PORT || 5000;
 const router = require("./router.js");
+const { addUser, removeUser, getUser } = require("./users.js");
 
 
 app.use(router);
@@ -17,16 +18,49 @@ app.use(router);
 
 
 io.on('connection', (socket) => {
-  console.log("A new user connected!!!");
+  
 
-  socket.on('join', ({name, room}) => {
-    console.log(name);
-    console.log(room);
+  socket.on('join', ({name, room}, callback) => {
+    console.log(socket.id, name);
+    const {error, user} = addUser({id : socket.id, name, room});
+    if(error){      
+      callback(error);
+    }
+    else {
+        console.log(`${name} has joined`);
+        socket.join(room);
+        socket.emit('sysmsg',  `Hello ${name}, Welcome to the room '${room}'.` );
+        socket.to(room).emit('sysmsg', `${name} has joined the chat room..`);      
+    }    
   })
 
-  socket.on('disconnect', ()=> {
-    console.log('user disconnected!!!');
+  socket.on('message', (message, callback) => {
+    const user = getUser(socket.id);
+    if(user){
+      socket.to(user.room).emit('message', user.name, message);
+      socket.emit('message', user.name, message);
+      console.log(user.id, user.name, message);
+    }
+    else {
+      // removeUser(socket.id);
+      callback('Connection Error, Please join again..');      
+
+    }
   })
+
+  socket.on('dsconn', () => {
+    const user = getUser(socket.id);
+    if(user){
+      console.log(user.id, user.name);
+      removeUser(socket.id);
+      socket.leave(user.room);
+    }   
+    
+    socket.disconnect();    
+    console.log('user disconnected..');
+  })
+
+    
 });
 
 

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+
+.chatOuterContainer{
+    height : 100vh;
+    background-color: rgb(30, 85, 150);
+    font-size : 25px;
+    background-image: url("./images/1.jpg");
+}
+
+.chatInnerContainer{ 
+    /* font-size : 2em; */
+    height : 22em;
+    width : 16em;
+    min-width: 16em;
+    min-height: 22em;
+    background: rgb(68, 140, 227);
+    position : relative;
+    top : 50%;
+    left : 50%;
+    transform :translate(-50%, -50%);
+    border-radius: 0.8em;
+    box-shadow: 1px 1px 6px 5px rgb(12, 53, 102);
+    transition-property: transform; 
+    transition-duration: 0.3s;
+}
+
+.chatInnerContainer:hover{
+    transform: translate(-49%, -49%);
+}
+
+.chatHeading { 
+    height : 8%;    
+    position : relative;
+
+}
+
+.chatHeading > div{
+    position : absolute;
+    color : rgb(2, 24, 51);
+    font-family: 'Luckiest Guy', cursive;
+    /* border: 2px solid black; */
+    width : 100%;
+    top : 50%;
+    transform: translateY(-50%);
+    padding-left: 5%;
+
+}
+
+.closeChat {
+    /* border : 1px solid black; */
+    padding-right: 4%;
+
+}
+#close {
+    /* border : 2px solid black; */
+    width : 7%;
+    display : block;    
+    margin-left : auto;
+    margin-right : 0;
+    cursor: pointer;
+}
+.chatArea {
+    /* border : 2px solid black; */
+    background-color: rgb(155, 198, 250);
+    height : 83%;
+    font-size: 0.9em;
+    padding : 5% 5% 5% 5%;
+    position : relative;
+    overflow-y: auto;
+    
+    /* width : 9%; */
+}
+.chatArea::-webkit-scrollbar {
+    width: 15px;
+}
+.chatArea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: 0 0 2px 2px rgb(22, 95, 196) inset;
+ }
+.chatArea::-webkit-scrollbar-thumb {
+    background: rgb(22, 95, 196);
+}
+.chatArea::-webkit-scrollbar-thumb:hover {
+    background: rgb(27, 84, 161);
+}
+
+.chatInput{
+    /* border: 2px solid black; */
+    /* display : block; */
+    height : 9%;
+    width : 100%;
+    position: relative;
+}
+.chatInput > input {
+    border : none;
+    font-size: 19px;
+    height : 100%;
+    width : 83%;
+    border-bottom-left-radius: 0.8em;
+    padding-left: 5%;
+    background-color: rgb(217, 231, 250);
+    /* border-bottom-right-radius: 0.8em; */
+}
+
+.chatInput > div {
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    /* border : 1px solid black; */
+    font-size: inherit;
+    width : 17%;
+    height : 100%;
+   
+    border-bottom-right-radius: 0.8em;
+    background-color: rgb(29, 204, 90);
+}
+
+.chatInput>div>div{
+    text-align: center;
+    /* height : auto; */
+    font-size: 1em;
+    /* border:1px solid black; */
+    position : absolute;
+    width : 100%;
+    top : 50%;
+    transform: translateY(-50%);
+    font-family: 'Luckiest Guy', cursive;
+    color : rgb(15, 87, 57);
+}
+
+.chatInput>div:hover {
+    background-color: rgb(47, 224, 152);
+}
