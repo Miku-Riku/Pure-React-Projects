@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 
 .chatOuterContainer{
     height : 100vh;
@@ -29,45 +33,92 @@
     transform: translate(-49%, -49%);
 }
 
+
+
+
+/*----------------------------CHAT HEADING ELEMENTS--------------------------*/
+
+
+
+
 .chatHeading { 
     height : 8%;    
     position : relative;
 
 }
 
+
+
 .chatHeading > div{
+    /* float: left; */
     position : absolute;
-    color : rgb(2, 24, 51);
-    font-family: 'Luckiest Guy', cursive;
-    /* border: 2px solid black; */
+    /* color : rgb(2, 24, 51); */
+    /* font-family: 'Luckiest Guy', cursive; */
+    /* border: 2px solid red; */
     width : 100%;
+    height : 70%;
     top : 50%;
     transform: translateY(-50%);
     padding-left: 5%;
-
-}
-
-.closeChat {
-    /* border : 1px solid black; */
     padding-right: 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatHeading>div>div{ 
 
 }
-#close {
-    /* border : 2px solid black; */
-    width : 7%;
-    display : block;    
-    margin-left : auto;
-    margin-right : 0;
-    cursor: pointer;
+
+#online-icon{
+    width : 6%;
+    /* border : 1px solid black;     */
 }
+#online-icon>img{
+
+    display : block;
+    width : 100%;
+    height : 100%;    
+}
+
+#roomName {
+    /* border: 1px solid black; */
+   
+    font-family: 'Luckiest Guy', cursive;
+
+}
+
+#roomName>span{
+    padding-left: 7px;
+    cursor : text;
+    color : rgb(2, 24, 90);
+}
+
+#closeChat {    
+    /* float : right; */
+    width : 6%;
+    /* border : 1px solid black; */
+    
+}
+#closeLink, #close {
+    width : 100%;
+    height : 100%;
+    display : block;
+    
+}
+
+
+
+
+/*---------------------------CHAT AREA---------------------------*/
 .chatArea {
-    /* border : 2px solid black; */
+    /* border : 7px solid black; */
     background-color: rgb(155, 198, 250);
-    height : 83%;
+    height : 85%;
     font-size: 0.9em;
-    padding : 5% 5% 5% 5%;
+    padding : 2% 5% 5% 5%;
     position : relative;
     overflow-y: auto;
+    overflow-x: hidden;
     
     /* width : 9%; */
 }
@@ -85,23 +136,32 @@
     background: rgb(27, 84, 161);
 }
 
+/*-----------------------CHAT INPUT---------------------------*/
+
 .chatInput{
     /* border: 2px solid black; */
     /* display : block; */
-    height : 9%;
+    height : 7%;
     width : 100%;
     position: relative;
 }
-.chatInput > input {
+.chatInput > textarea {
     border : none;
-    font-size: 19px;
+    font-size: 16px;
     height : 100%;
     width : 83%;
     border-bottom-left-radius: 0.8em;
     padding-left: 5%;
+    padding-top: 9px;
     background-color: rgb(217, 231, 250);
+    font-family: 'Roboto', sans-serif;
+    /* overflow:scroll; */
     /* border-bottom-right-radius: 0.8em; */
 }
+.chatInput > textarea::-webkit-scrollbar {
+    width: 0;
+}
+
 
 .chatInput > div {
     position : absolute;
@@ -127,6 +187,7 @@
     transform: translateY(-50%);
     font-family: 'Luckiest Guy', cursive;
     color : rgb(15, 87, 57);
+    cursor : pointer;
 }
 
 .chatInput>div:hover {

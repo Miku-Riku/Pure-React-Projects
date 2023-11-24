@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
     else {
         console.log(`${name} has joined`);
         socket.join(room);
-        socket.emit('sysmsg',  `Hello ${name}, Welcome to the room '${room}'.` );
+        socket.emit('sysmsg',  `Hello ${name}, Welcome to the room..` );
         socket.to(room).emit('sysmsg', `${name} has joined the chat room..`);      
     }    
   })
@@ -53,11 +53,12 @@ io.on('connection', (socket) => {
     if(user){
       console.log(user.id, user.name);
       removeUser(socket.id);
+      socket.to(user.room).emit('sysmsg', `${user.name} has left the room.`);
       socket.leave(user.room);
-    }   
-    
+      console.log(`${user.name} disconnected.`);
+    }       
     socket.disconnect();    
-    console.log('user disconnected..');
+    
   })
 
     
