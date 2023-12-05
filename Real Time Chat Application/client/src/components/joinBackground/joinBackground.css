@@ -1,0 +1,105 @@
+:root {
+    --cursorElementInitialColor : radial-gradient(circle, aqua, rgba(75, 181, 235, 1), aqua);
+}
+
+
+.join_bg_container{                
+    background-color: black;
+    height: 100%;
+    overflow: hidden;
+    position : relative;  
+    /* z-index: 0;           */
+}
+
+.join_bg_row{ 
+    display: inline-flex;    
+    margin-top: -29px;
+    margin-left: -50px;                 
+}
+
+.join_bg_row:nth-child(even){
+    margin-left: 0px;
+}
+
+.hexagon {
+    
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    
+    width : 100px;
+    height : 100px;
+    position: relative;
+    margin: 1px;
+    background-image : linear-gradient(to right, rgb(2, 36, 51) 50%, rgba(0, 0, 0, 1) 50%);
+    transition: 2s;
+
+}
+.hexagon:hover{
+    transition: 0s;
+}
+
+
+.join_cursor {
+    /* z-index: ; */
+    border-radius: 50%;
+    width : 350px;
+    height : 350px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    
+    transition-property: top left;
+    transition-duration: 0.1s;
+    transition-timing-function: ease; 
+    /* animation: movement 4s linear infinite normal none;                */
+    /* -webkit-animation: movement 2s linear infinite normal none; */
+    visibility: hidden;                  
+
+}
+
+@keyframes myfilter {
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+@keyframes movement{
+    0%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 10%, aqua 30%);
+    }
+    20%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 20%, aqua 40%);
+    }
+    30% {
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 30%, aqua 50%);
+    }
+    40%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 40%, aqua 60%);
+    }
+    50%{
+        background-image : radial-gradient(circle, rgb(2, 229, 250) 50%, aqua 70%);
+    }
+    60%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 60%, aqua 80%);
+    }
+    70%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 70%, aqua 90%);
+    }
+    80%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 80%, aqua 95%);
+    }
+    90%{
+        background-image: radial-gradient(circle, rgb(2, 229, 250) 90%, aqua 100%);
+    }
+    100%{
+        background-image: radial-gradient(circle,  rgb(2, 229,250) 100%, rgb(2, 229,250) 100%); 
+    }
+}
+
+.join_bg_container:hover .join_cursor{                
+    /* background-color : var(--cursorElementInitialColor);  */
+    background-image: var(--cursorElementInitialColor);            
+    visibility: visible;
+ }
